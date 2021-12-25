@@ -11,12 +11,12 @@ data_values = json.loads(fdata_values)
 
 
 def func(id, value, list):
-    for a in range(0,len(list)):
-        if list[a]['id'] == id:
-            list[a]['value'] = value
+    for i in range(0,len(list)):
+        if list[i]['id'] == id:
+            list[i]['value'] = value
             return
-        elif list[a].get('values') != None:
-            if func(id, value, list[a]['values']) == True:
+        elif list[i].get('values') != None:
+            if func(id, value, list[i]['values']):
                 return
 
 r = open('report.json', 'w')
