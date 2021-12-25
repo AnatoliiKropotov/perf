@@ -1,2 +1,2 @@
 # perf
-My first repository jn GitHub
+My first repository in GitHub
