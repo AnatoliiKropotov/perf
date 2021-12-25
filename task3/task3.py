@@ -10,7 +10,7 @@ data_tests = json.loads(fdata_tests)
 data_values = json.loads(fdata_values)
 
 
-
+# здесь должна быть рекурсивная функция,к этому я пришёл, но написать её не успел :(
 def func4(id, value, list):
     print('переход в func4')
     for i in range(0,len(list)):
@@ -50,7 +50,7 @@ def func(id, value, list):
         elif list[a].get('values') != None:
             if func2(id, value, list[a]['values']) == True:
                 return
-# здесь должна быть рекурсивная функция,к этому я пришёл, но написать её не успел :(
+
 r = open('report.json', 'w')
 for i in range(0, len(data_values['values'])):
     print('start')
