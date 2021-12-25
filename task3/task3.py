@@ -49,7 +49,8 @@ def func(id, value, list):
         elif list[a].get('values') != None:
             if func2(id, value, list[a]['values']) == True:
                 return
-# здесь должна быть рекурсивная функция,к этому я пришёл, но написать её не успел :(
+
+            
 r = open('report.json', 'w')
 for i in range(0, len(data_values['values'])):
     print('start')
