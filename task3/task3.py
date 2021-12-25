@@ -10,47 +10,15 @@ data_tests = json.loads(fdata_tests)
 data_values = json.loads(fdata_values)
 
 
-# здесь должна быть рекурсивная функция,к этому я пришёл, но написать её не успел :(
-def func4(id, value, list):
-    print('переход в func4')
-    for i in range(0,len(list)):
-        if list[i]['id'] == id:
-            list[i]['value'] = value
-            print('выход из func4')
-            return
-
-def func3(id, value, list):
-    print('переход в func3')
-    for i in range(0,len(list)):
-        if list[i]['id'] == id:
-            list[i]['value'] = value
-            print('выход из func3')
-            return
-        elif list[i].get('values') != None:
-            func4(id, value, list = list[i]['values'])
-            return
-
-def func2(id, value, list):
-    print('переход в func2')
-    for i in range(0,len(list)):
-        if list[i]['id'] == id:
-            list[i]['value'] = value
-            print('выход из func2')
-            return True
-        elif list[i].get('values') != None:
-            if func3(id, value, list = list[i]['values']) == True:
-                return
-
 def func(id, value, list):
     for a in range(0,len(list)):
         if list[a]['id'] == id:
             list[a]['value'] = value
             return
         elif list[a].get('values') != None:
-            if func2(id, value, list[a]['values']) == True:
+            if func(id, value, list[a]['values']) == True:
                 return
 
-            
 r = open('report.json', 'w')
 for i in range(0, len(data_values['values'])):
     print('start')
@@ -60,3 +28,4 @@ for i in range(0, len(data_values['values'])):
     func(id, value, list)
 
 json.dump(data_tests, r, sort_keys=True, indent=2)
+
