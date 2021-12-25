@@ -21,11 +21,9 @@ def func(id, value, list):
 
 r = open('report.json', 'w')
 for i in range(0, len(data_values['values'])):
-    print('start')
     id = data_values["values"][i]['id']
     value = data_values["values"][i]['value']
     list = data_tests['tests']
     func(id, value, list)
 
 json.dump(data_tests, r, sort_keys=True, indent=2)
-
