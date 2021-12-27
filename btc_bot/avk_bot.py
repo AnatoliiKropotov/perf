@@ -97,7 +97,7 @@ def callback_inline(call):
 @bot.message_handler(commands='about')
 def about_func(message):
     bot.send_message(message.chat.id, '''
-AK_46
+Анатолий Кропотов
 id 491353015
 ak0391@yandex.ru''')
     func = 'about_func'
