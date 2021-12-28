@@ -17,7 +17,7 @@ def feedback(message, func):
 #запуск бота
 @bot.message_handler(commands='start')
 def start(message):
-    graz = open('C:/Users/Анатолий/Desktop/py4e/graz.webp', 'rb')
+    graz = open('xxxx/xxxx/graz.webp', 'rb')
     bot.send_sticker(message.chat.id, graz)
     bot.send_message(message.chat.id, "Поздравляю, бот запущен!")
     func = 'start'
@@ -106,7 +106,7 @@ ak0391@yandex.ru''')
 #ты потрясающий
 @bot.message_handler(commands='you_awesome')
 def awesome_func(message):
-    keanu = open('C:/Users/Анатолий/Desktop/py4e/keanu.webp', 'rb')
+    keanu = open('xxxx/xxxx/keanu.webp', 'rb')
     bot.send_sticker(message.chat.id, keanu)
     if message.from_user.username != None:
         bot.send_message(message.chat.id, f'нет, {message.from_user.username}, это ты потрясающий!')
