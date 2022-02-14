@@ -31,25 +31,26 @@ to skip client or "exit" to exit program""")
 
         # общение с клиентом
         while True:
-            try:
-                message_client = clientsocket.recv(1024).decode()
-                print(f"{client_name}: {message_client}")
-                message_server = input("Me: ")
-                if message_server == 'next':
-                    clientsocket.close()
-                elif message_server == 'exit':
-                    clientsocket.close()
-                    serversocket.close()
-                    exit()
-                else:
-                    clientsocket.send(message_server.encode())
-
-            except:
+            message_client = clientsocket.recv(1024).decode()
+            if not message_client:
                 print(f'user {client_name} has left the chat')
                 clientsocket.close()
                 break
+            print(f"{client_name}: {message_client}")
+            message_server = input("Me: ")
+            if message_server == 'next':
+                clientsocket.close()
+                print(f'user {client_name} has been kicked from chat')
+                break
+            elif message_server == 'exit':
+                clientsocket.close()
+                serversocket.close()
+                exit()
+            else:
+                clientsocket.send(message_server.encode())
+
 
 except:
     serversocket.close()
-    print('Bind fail')
+    print('Bind failed')
 
