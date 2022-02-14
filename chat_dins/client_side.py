@@ -21,7 +21,7 @@ enter "exit" to exit""")
     # общение с сервером
     try:
         while True:
-            message_client = input("Я: ")
+            message_client = input("Me: ")
             if message_client == 'exit':
                 clientsocket.close()
                 break
