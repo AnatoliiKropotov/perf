@@ -10,7 +10,7 @@ try:
 
 
     # отправляем серверу своё имя/ID
-    client_name = input("Enter name or ID:: ")
+    client_name = input("Enter name or ID: ")
     clientsocket.send(client_name.encode())
 
     # получаем имя сервера
