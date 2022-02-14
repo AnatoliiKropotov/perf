@@ -39,8 +39,11 @@ to skip client or "exit" to exit program""")
                     clientsocket.close()
                 elif message_server == 'exit':
                     clientsocket.close()
+                    serversocket.close()
                     exit()
-                clientsocket.send(message_server.encode())
+                else:
+                    clientsocket.send(message_server.encode())
+
             except:
                 print(f'user {client_name} has left the chat')
                 clientsocket.close()
@@ -49,3 +52,4 @@ to skip client or "exit" to exit program""")
 except:
     serversocket.close()
     print('Bind fail')
+
