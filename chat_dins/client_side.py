@@ -2,7 +2,7 @@ import socket
 
 clientsocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 server_ip = input('Enter server ip: ')
-
+# server_ip = 'localhost'
 try:
     # подключаемся к серверу
     clientsocket.connect((server_ip , 9090))
@@ -21,12 +21,16 @@ enter "exit" to exit""")
     # общение с сервером
     try:
         while True:
-            message_client = input("Me: ")
+            message_client = input("Я: ")
             if message_client == 'exit':
                 clientsocket.close()
                 break
             clientsocket.send(message_client.encode())
             message_server = clientsocket.recv(1024).decode()
+            if not message_server:
+                print(f"connection with {server_name} lost")
+                clientsocket.close()
+                break
             print(f"{server_name}: {message_server}")
     except:
         clientsocket.close()
