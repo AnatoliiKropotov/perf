@@ -1,2 +1,2 @@
 # perf
-My first repository on GitHub
+My public repository on GitHub
