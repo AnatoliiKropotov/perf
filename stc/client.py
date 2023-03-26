@@ -72,6 +72,9 @@ while True:
                     value = input("Введите fio:")
                 elif field == "position":
                     value = input("Введите position:")
+                else:
+                    print("Неверная команда")
+                    continue
 
             elif table == "tasks":
                 field = input("Укажите, какое поле нужно обновить: description, parent_task_id, specialist_id, deadline, status: ")
@@ -83,18 +86,21 @@ while True:
                         int_value = int(value)
                     except:
                         print('Значение не int')
-                        break
+                        continue
                 elif field == "specialist_id":
                     value = input("Введите specialist_id:")
                     try:
                         int_value = int(value)
                     except:
                         print('Значение не int')
-                        break
+                        continue
                 elif field == "deadline":
                     value = input("Введите deadline:")
                 elif field == "status":
                     value = input("Введите status:")
+                else:
+                    print("Неверная команда")
+                    continue
             params = {
             'id' : int_id,
             'field' : field,
