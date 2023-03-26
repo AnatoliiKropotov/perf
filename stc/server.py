@@ -52,7 +52,6 @@ def busy_employees():
     for i in db.busy():
         result = {"id": i[0], "fio": i[1], "count_tasks": i[2]}
         lst.append(result)
-    print(json.dumps(lst ,indent=4, ensure_ascii=False))
     return json.dumps(lst ,indent=4, ensure_ascii=False)
 
 
@@ -75,7 +74,6 @@ def important_tasks():
         else:
             list_of_candidants.append({"id_important_task":i[0], "deadline": i[4],"fio_specialist":[free_specialist[0]]})
             count+=1
-    print(json.dumps(list_of_candidants ,indent=4, ensure_ascii=False))
     return json.dumps(list_of_candidants ,indent=4, ensure_ascii=False)
 
 
