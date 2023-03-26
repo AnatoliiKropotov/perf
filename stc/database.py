@@ -27,24 +27,7 @@ class Database_main:
             status TEXT NOT NULL,
             FOREIGN KEY (specialist_id)  REFERENCES employees (id) ON DELETE SET NULL
             );""")
-
             connection.commit()
-
-
-            # cursor.execute("""
-            # INSERT INTO employees(fio,position)
-            # VALUES
-            # ('Алексей Иванов', 'Инженер'),
-            # ('Сергей Петров', 'Инженер'),
-            # ('Ваня Егоров','Ведущий инженер');""")
-            # connection.commit()
-
-            # cursor.execute("""INSERT INTO tasks(description, parent_task_id, specialist_id, status)
-            # VALUES
-            # ('Не работает модуль статистики', NULL, 2, 'в работе'),
-            # ('Не заходит на сайт', NULL, 1, 'в работе'),
-            # ('Ошибка при зполнении формы регистрации',NULL, NULL, 'специалист не назначен');""")
-            # connection.commit()
 
     def read(self, table):
         with sqlite3.connect('employees.sqlite') as connection:
